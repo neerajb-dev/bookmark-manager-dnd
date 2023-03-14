@@ -8,29 +8,48 @@ interface ListItemProps {
   itemIndex: number
 }
 
+interface DraggedListItemType {
+  id: string
+  index: number
+  collectionId: string
+}
+
 const ListItem: React.FC<ListItemProps> = ({ data, itemIndex }) => {
   const [{ isDragging }, listItemDrag] = useDrag(() => ({
     type: itemTypes.LISTITEM,
     item: {
       id: data.id,
       index: itemIndex,
+      collectionId: data.collections,
     },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }))
 
-  const [, listItemHover] = useDrop(() => ({
+  const [{ handlerId }, listItemHover] = useDrop(() => ({
     accept: itemTypes.LISTITEM,
+    collect: (monitor) => ({
+      handlerId: monitor.getHandlerId(),
+    }),
     hover: (item: any, monitor) => {
-      const dragIndex = item.index
-      const hoverIndex = itemIndex
-      console.warn({
-        dragIndex,
-        hoverIndex,
+      const draggedItem = {
+        draggedItemIndex: item.index,
+        collectionId: item.collectionId,
+      }
+      const dropTarget = {
+        droppedItemIndex: itemIndex,
+        collectionId: data.collections,
+      }
+      console.warn('swapping position of list items', {
+        draggedItem,
+        dropTarget,
       })
     },
   }))
+
+  console.log('handlerId', handlerId)
+
   return (
     <div
       className={`w-32 min-h-[72px] border border-gray-700 ${
