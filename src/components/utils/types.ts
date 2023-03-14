@@ -7,7 +7,7 @@ export interface Collection {
   user: string
 }
 
-export interface SortedLists {
+export interface ListItem {
   id: string
   name: string
   title: string
@@ -20,7 +20,7 @@ export interface SortedLists {
 
 export interface CollectionData {
   collection: Collection
-  sortedLists: SortedLists[]
+  sortedLists: ListItem[]
 }
 
 export interface Tab {

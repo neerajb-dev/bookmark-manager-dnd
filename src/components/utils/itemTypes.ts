@@ -1,13 +1,13 @@
 type ItemTypes = {
   COLLECTION: 'collection'
-  BOOKMARK: 'bookmark'
+  LISTITEM: 'listItem'
   TAB: 'tab'
   WINDOW: 'window'
 }
 
 const itemTypes: ItemTypes = {
   COLLECTION: 'collection',
-  BOOKMARK: 'bookmark',
+  LISTITEM: 'listItem',
   TAB: 'tab',
   WINDOW: 'window',
 }

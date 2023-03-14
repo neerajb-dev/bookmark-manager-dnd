@@ -1,13 +1,33 @@
 import React from 'react'
-import Item from './Item'
+import { useDrop } from 'react-dnd'
+import itemTypes from '../../utils/itemTypes'
+import { ListItem as ItemType } from '../../utils/types'
+import ListItem from './ListItem'
 
-const List = () => {
+interface ListProps {
+  data: ItemType[]
+}
+
+const List: React.FC<ListProps> = ({ data }) => {
+  const [{ isOver }, listItemDrop] = useDrop({
+    accept: itemTypes.LISTITEM,
+    drop: (item) => {
+      console.log(item)
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  })
   return (
     <div
-      className={`w-full min-h-[32px] border border-dashed border-slate-400 flex flex-wrap p-2 gap-2`}
+      className={`w-full min-h-[32px] border border-dashed border-slate-900 flex flex-wrap p-2 gap-2 ${
+        isOver ? 'bg-slate-300' : 'bg-blue-200'
+      }`}
+      ref={listItemDrop}
     >
-      <Item />
-      <Item />
+      {data.map((item) => {
+        return <ListItem data={item} key={item.id} />
+      })}
     </div>
   )
 }
