@@ -10,7 +10,6 @@ type ReactSelectOptions = {
 
 const Criteria = () => {
   const { colSpan } = useContext(SidebarContext)
-  console.log('criteria', colSpan)
   const [inpVal, setInpVal] = useState('')
   const [expandCollapseValue, setExpandCollapseValue] = useState<any>({
     value: 1,
