@@ -24,7 +24,7 @@ const Tabs: React.FC<TabsProps> = ({ openTabs }) => {
     >
       {openTabs.map((tab, tabIdx) => {
         if (tab.title !== 'New Tab') {
-          return <Tab tabData={tab} tabIndex={tabIdx} />
+          return <Tab tabData={tab} tabIndex={tabIdx} key={tab.id} />
         }
       })}
     </div>

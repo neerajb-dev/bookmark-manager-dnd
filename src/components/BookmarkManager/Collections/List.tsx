@@ -10,7 +10,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ data }) => {
   const [{ isOver }, listItemDrop] = useDrop({
-    accept: itemTypes.LISTITEM,
+    accept: [itemTypes.LISTITEM, itemTypes.TAB, itemTypes.WINDOW],
     drop: (item) => {
       console.log(item)
     },
@@ -25,8 +25,8 @@ const List: React.FC<ListProps> = ({ data }) => {
       }`}
       ref={listItemDrop}
     >
-      {data.map((item) => {
-        return <ListItem data={item} key={item.id} />
+      {data.map((item, itemIdx) => {
+        return <ListItem data={item} itemIndex={itemIdx} key={item.id} />
       })}
     </div>
   )

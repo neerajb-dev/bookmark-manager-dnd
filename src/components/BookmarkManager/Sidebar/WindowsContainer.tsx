@@ -23,7 +23,9 @@ const WindowsContainer: React.FC<WindowsContainerProps> = ({ openWindows }) => {
       ref={windowDrop}
     >
       {openWindows.map((window, windowIdx) => {
-        return <Window windowData={window} windowIndex={windowIdx} />
+        return (
+          <Window windowData={window} windowIndex={windowIdx} key={window.id} />
+        )
       })}
     </div>
   )
