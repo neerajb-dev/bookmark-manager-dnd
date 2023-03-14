@@ -8,12 +8,6 @@ interface ListItemProps {
   itemIndex: number
 }
 
-interface DraggedListItemType {
-  id: string
-  index: number
-  collectionId: string
-}
-
 const ListItem: React.FC<ListItemProps> = ({ data, itemIndex }) => {
   const [{ isDragging }, listItemDrag] = useDrag(() => ({
     type: itemTypes.LISTITEM,
