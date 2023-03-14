@@ -53,7 +53,7 @@ export interface OpenWindow {
   incognito: boolean
   left: number
   state: string
-  tabs: Tab[] | {}[]
+  tabs: Tab[]
   top: number
   type: string
   width: number
