@@ -19,7 +19,7 @@ const SidebarContextProvider: React.FC<SidebarContextProvider> = ({
 }) => {
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const colSpan = showSidebar ? 'col-span-10' : 'col-span-12'
-  console.log('sidebarContext', colSpan)
+  // console.log('sidebarContext', colSpan)
   return (
     <SidebarContext.Provider value={{ showSidebar, setShowSidebar, colSpan }}>
       {children}
