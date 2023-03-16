@@ -12,7 +12,7 @@ const List: React.FC<ListProps> = ({ data }) => {
   const [{ isOver }, listItemDrop] = useDrop({
     accept: [itemTypes.LISTITEM, itemTypes.TAB, itemTypes.WINDOW],
     drop: (item) => {
-      // console.log(item)
+      console.log(item)
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),

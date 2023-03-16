@@ -22,27 +22,43 @@ const ListItem: React.FC<ListItemProps> = ({ data, itemIndex }) => {
   }))
 
   const [{ handlerId }, listItemHover] = useDrop(() => ({
-    accept: itemTypes.LISTITEM,
+    accept: [itemTypes.LISTITEM, itemTypes.TAB],
     collect: (monitor) => ({
       handlerId: monitor.getHandlerId(),
     }),
-    hover: (item: any, monitor) => {
+    drop: (item: any, monitor) => {
       const draggedItem = {
-        draggedItemIndex: item.index,
+        id: item.id,
+        index: item.index,
         collectionId: item.collectionId,
       }
-      const dropTarget = {
-        droppedItemIndex: itemIndex,
+      const droppedOn = {
+        id: data.id,
+        index: itemIndex,
         collectionId: data.collections,
       }
-      console.warn('swapping position of list items', {
+      console.log({
         draggedItem,
-        dropTarget,
+        droppedOn,
       })
     },
+    // hover: (item: any, monitor) => {
+    //   const draggedItem = {
+    //     id: item.id,
+    //     index: item.index,
+    //     collectionId: item.collectionId,
+    //   }
+    //   const droppedOn = {
+    //     id: data.id,
+    //     index: itemIndex,
+    //     collectionId: data.collections,
+    //   }
+    //   console.log({
+    //     draggedItem,
+    //     droppedOn,
+    //   })
+    // },
   }))
-
-  console.log('handlerId', handlerId)
 
   return (
     <div
