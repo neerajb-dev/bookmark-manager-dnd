@@ -9,7 +9,7 @@ interface CollectionsProps {
 
 const Collections: React.FC<CollectionsProps> = ({ data }) => {
   const { colSpan } = useContext(SidebarContext)
-  console.log('collections', colSpan)
+  // console.log('collections', colSpan)
   return (
     <div className={`${colSpan} row-[span_8] p-2 lg:${colSpan} border p-2`}>
       <CollectionsContainer allCollections={data} />

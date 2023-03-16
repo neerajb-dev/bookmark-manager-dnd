@@ -12,7 +12,7 @@ const List: React.FC<ListProps> = ({ listData }) => {
       className={`w-full min-h-[32px] border border-dashed border-slate-400 flex flex-wrap p-2 gap-2`}
     >
       {listData.map((listItem, index) => {
-        return <Item listItem={listItem} itemIndex={index} />
+        return <Item listItem={listItem} itemIndex={index} key={listItem.id} />
       })}
     </div>
   )
