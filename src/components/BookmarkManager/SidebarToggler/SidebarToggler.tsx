@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { SidebarContext } from '../../common/sidebarContextProvider/SidebarContext'
+import { BookmarkContext } from '../../common/bookmarkContextProvider'
 
 const SidebarToggler: React.FC = () => {
-  const { showSidebar, setShowSidebar } = useContext(SidebarContext)
+  const { showSidebar, setShowSidebar } = useContext(BookmarkContext)
   const rightPosition = showSidebar ? 'right-[17%]' : 'right-[0%]'
   return (
     <button

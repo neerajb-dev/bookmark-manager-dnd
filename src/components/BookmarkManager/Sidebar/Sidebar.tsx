@@ -1,13 +1,10 @@
-import React, { useContext, useState } from 'react'
-import { openWindows as openWindowsData } from '../../../data'
-import { SidebarContext } from '../../common/sidebarContextProvider/SidebarContext'
-import { OpenWindows } from '../../utils/types'
+import React, { useContext } from 'react'
+import { BookmarkContext } from '../../common/bookmarkContextProvider'
 import SidebarHeader from './SidebarHeader'
 import WindowsContainer from './WindowsContainer'
 
-const Sidebar = () => {
-  const { showSidebar } = useContext(SidebarContext)
-  const [openWindows, setOpenWindows] = useState<OpenWindows>(openWindowsData)
+const Sidebar: React.FC<{}> = () => {
+  const { showSidebar, openWindows } = useContext(BookmarkContext)
   return (
     <div
       className={`col-span-2 row-[span_8] p-2 border flex flex-col ${

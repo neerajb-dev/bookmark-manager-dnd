@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { MdAdd } from 'react-icons/md'
 import { ReactSelect } from '../../common/dropdown/react_select'
-import { SidebarContext } from '../../common/sidebarContextProvider/SidebarContext'
+import { BookmarkContext } from '../../common/bookmarkContextProvider'
 
 type ReactSelectOptions = {
   value: number | string
@@ -9,7 +9,7 @@ type ReactSelectOptions = {
 }
 
 const Criteria = () => {
-  const { colSpan } = useContext(SidebarContext)
+  const { colSpan } = useContext(BookmarkContext)
   const [inpVal, setInpVal] = useState('')
   const [expandCollapseValue, setExpandCollapseValue] = useState<any>({
     value: 1,

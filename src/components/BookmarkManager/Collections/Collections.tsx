@@ -1,17 +1,12 @@
 import React, { useContext } from 'react'
-import { SidebarContext } from '../../common/sidebarContextProvider/SidebarContext'
-import { CollectionResponse } from '../../utils/types'
+import { BookmarkContext } from '../../common/bookmarkContextProvider'
 import CollectionsContainer from './CollectionsContainer'
 
-interface CollectionsProps {
-  data: CollectionResponse
-}
-
-const Collections: React.FC<CollectionsProps> = ({ data }) => {
-  const { colSpan } = useContext(SidebarContext)
+const Collections: React.FC<{}> = () => {
+  const { colSpan, collectionData } = useContext(BookmarkContext)
   return (
     <div className={`${colSpan} row-[span_8] p-2 lg:${colSpan} border p-2`}>
-      <CollectionsContainer allCollections={data} />
+      <CollectionsContainer allCollections={collectionData} />
     </div>
   )
 }
