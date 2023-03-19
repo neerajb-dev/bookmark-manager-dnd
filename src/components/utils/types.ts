@@ -19,6 +19,7 @@ export interface ListItem {
 }
 
 export interface CollectionData {
+  id: string
   collection: Collection
   sortedLists: ListItem[]
 }
