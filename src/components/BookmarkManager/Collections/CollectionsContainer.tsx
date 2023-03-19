@@ -1,9 +1,10 @@
 import React from 'react'
-import { CollectionResponse } from '../../utils/types'
+import { Collection as CollectionType } from '../../utils/types'
 import Collection from './Collection'
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
 interface CollectionsContainerProps {
-  allCollections: CollectionResponse
+  allCollections: CollectionType[]
 }
 
 const CollectionsContainer: React.FC<CollectionsContainerProps> = ({
@@ -13,9 +14,14 @@ const CollectionsContainer: React.FC<CollectionsContainerProps> = ({
     <div
       className={`w-full h-full border border-cyan-900 p-2 overflow-y-scroll bg-white`}
     >
-      {allCollections.map((collection) => {
-        return <Collection data={collection} key={collection.collection.id} />
-      })}
+      <SortableContext
+        items={allCollections}
+        strategy={verticalListSortingStrategy}
+      >
+        {allCollections.map((collection) => {
+          return <Collection collection={collection} key={collection.id} />
+        })}
+      </SortableContext>
     </div>
   )
 }
