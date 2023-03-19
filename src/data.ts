@@ -1,5 +1,6 @@
 export const collectionData = [
   {
+    id: 'collection1',
     collection: {
       id: '0e56fa76-e2ba-49a2-99df-02006764e00a',
       name: '',
@@ -32,6 +33,7 @@ export const collectionData = [
     ],
   },
   {
+    id: 'collection2',
     collection: {
       id: '87fa1a4b-8d42-47cb-917c-8b0b022ffcf1',
       name: '',
@@ -75,6 +77,7 @@ export const collectionData = [
     ],
   },
   {
+    id: 'collection3',
     collection: {
       id: 'dcd12e93-7f2a-4261-8cdd-cbe83f778d7a',
       name: '',
