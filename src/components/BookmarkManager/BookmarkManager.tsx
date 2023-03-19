@@ -13,14 +13,15 @@ const BookmarkManager: React.FC<{}> = () => {
   const [collectionList, setCollectionList] = useState(collections)
 
   const handleDragEnd = (e: DragEndEvent) => {
-    const { active, over } = e
-    if (active.id !== over?.id) {
-      setCollectionList((items: Collection[]) => {
-        const activeIdx = items.findIndex((obj) => obj.id === active.id)
-        const overIdx = items.findIndex((obj) => obj.id === over?.id)
-        return arrayMove(items, activeIdx, overIdx)
-      })
-    }
+    console.log(e)
+    // const { active, over } = e
+    // if (active.id !== over?.id) {
+    //   setCollectionList((items: Collection[]) => {
+    //     const activeIdx = items.findIndex((obj) => obj.id === active.id)
+    //     const overIdx = items.findIndex((obj) => obj.id === over?.id)
+    //     return arrayMove(items, activeIdx, overIdx)
+    //   })
+    // }
   }
 
   return (
